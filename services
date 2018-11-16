@@ -55,7 +55,13 @@ do
             ##SEND AN EMAIL###
             MESSAGE="$i was down, but I was able to restart it on $(hostname) $(date)  "
             SUBJECT="$i was down -but restarted-  on $(hostname) $(date) "
-            echo $MESSAGE | mail -s "$SUBJECT" "$EMAIL"
+            #echo $MESSAGE | mail -s "$SUBJECT" "$EMAIL"
+
+            #curl --request POST \
+            #    --url https://api.sendgrid.com/v3/mail/send \
+            #    --header 'Authorization: Bearer YOUR_API_KEY' \
+            #    --header 'Content-Type: application/json' \
+            #    --data '{"personalizations": [{"to": [{"email": "recipient@example.com"}]}],"from": {"email": "sendeexampexample@example.com"},"subject": "Hello, World!","content": [{"type": "text/plain", "value": "Heya!"}]}'
 
         else
             ##IF RESTART DID NOT WORK###
